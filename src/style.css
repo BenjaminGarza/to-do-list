@@ -51,3 +51,11 @@ aside{
 .selected{
   background: aqua;
 }
+
+.delete-btn{
+  height: 40px;
+}
+
+.edit-btn{
+  height: 40px;
+}

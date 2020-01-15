@@ -1,19 +1,9 @@
 
-
 const addCloseButton = () => {
-  // Create a "close" button and append it to each list item
-  let myNodeList = document.getElementsByTagName("li");
 
-  for (let i = 0; i < myNodeList.length; i++) {
-    let span = document.createElement("span");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodeList[i].appendChild(span);
-  };
 
   // Click on a close button to hide the current list item
-  let close = document.getElementsByClassName("close");
+  let close = document.getElementsByClassName("delete-btn");
 for (let i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     let div = this.parentElement;
@@ -22,18 +12,13 @@ for (let i = 0; i < close.length; i++) {
 };
 };
 
-const addChecked = () => {
-// Add a "checked" symbol when clicking on a list item
-let list = document.querySelector("ul");
-list.addEventListener("click", function(e) {
-  if (e.target.tagName == "li") {
-    e.target.classList.toggle("checked");
-  }
-}, false);
-};
 
-const taskFactory = (project,title, description, dueDate, urgency) => {
-
+const taskFactory = (projectVal,titleVal, descriptionVal, dueDateVal, urgencyVal) => {
+  this.project = projectVal;
+  this.title = titleVal;
+  this.description = descriptionVal;
+  this.dueDate = dueDateVal;
+  this.urgency = urgencyVal;
   return { project,title, description, dueDate, urgency}
 }
 
@@ -48,9 +33,15 @@ const newTask = () => {
   let div2 = document.createElement("div");
   let div3 = document.createElement("div");
   let div4 = document.createElement("div");
-  let checkBox = createElement('checkbox', { className: 'check-box' });
-  let deleteBtn = createElement('button', { className: 'delete-btn' });
-  let editBtn = createElement('button', { className: 'edit-btn' });
+  let checkBox = document.createElement('input');
+  checkBox.type = "checkbox";
+  checkBox.classList.add("check-box");
+  let deleteBtn = document.createElement('button');
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.innerHTML = "X";
+  let editBtn = document.createElement('button', { className: 'edit-btn' });
+  editBtn.classList.add("edit-btn");
+  editBtn.innerHTML = "Edit";
   
   const task = taskFactory(
     'default', 
@@ -60,29 +51,31 @@ const newTask = () => {
     document.getElementById("newTaskUrgency").value
   );
 
+  document.getElementById("newTaskTitle").value = "";
+  document.getElementById("newTaskDescription").value = ""; 
+  document.getElementById("newTaskDueDate").value = ""; 
+  document.getElementById("newTaskUrgency").value = "";
+
   div1.appendChild(document.createTextNode(task.title));
-  div2.appendChild(document.createTextNode(task.description));
+  div2.appendChild(document.createTextNode(task.dueDate));
   div3.appendChild(document.createTextNode(task.urgency));
   div4.appendChild(document.createTextNode(task.description));
 
+  
   li.appendChild(div1);
   li.appendChild(div2);
   li.appendChild(div3);
   li.appendChild(div4);
+  li.appendChild(checkBox);
+  li.appendChild(editBtn);
+  li.appendChild(deleteBtn);
+
 
    if (task.title === "") {
      alert("Please enter a task!");
     } else {
       document.getElementById("taskList").appendChild(li);
-      addCloseButton();
    };
-  document.getElementById("newTask").value = "";
-
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close"
-  span.appendChild(txt);
-  li.appendChild(span);
   
    for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
