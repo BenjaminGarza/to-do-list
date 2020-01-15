@@ -44,10 +44,10 @@ ul li:hover{
   background: #ddd;
 }
 
-ul li{
-  height: 500%;
-}
-
 aside{
   float: left;
+}
+
+.selected{
+  background: aqua;
 }
