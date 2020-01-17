@@ -1,5 +1,5 @@
 
-const addCloseButton = () => {
+const deleteBtn = () => {
 
 
   // Click on a close button to hide the current list item
@@ -19,6 +19,8 @@ const taskFactory = (projectVal,titleVal, descriptionVal, dueDateVal, urgencyVal
   this.description = descriptionVal;
   this.dueDate = dueDateVal;
   this.urgency = urgencyVal;
+  //left off here
+  console.log(document.getElementsByClassName("selected")[0].firstChild.textContent);
   return { project,title, description, dueDate, urgency}
 }
 
@@ -44,7 +46,7 @@ const newTask = () => {
   editBtn.innerHTML = "Edit";
   
   const task = taskFactory(
-    'default', 
+    document.getElementsByClassName("selected"), 
     document.getElementById("newTaskTitle").value,
     document.getElementById("newTaskDescription").value, 
     document.getElementById("newTaskDueDate").value, 
@@ -77,20 +79,22 @@ const newTask = () => {
       document.getElementById("taskList").appendChild(li);
    };
   
-   for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      let div = this.parentElement;
-      div.style.display = "none";
-    }
-   }
   }
 
-  const newProject = () => {
+  const projectRender = (projectName) => {
     let li = document.createElement("li");
-    let projectName = document.createTextNode(document.getElementById("new-project").value);
+    li.classList.add("selected");
 
-    li.appendChild(projectName);
+    let projectNameNode = document.createTextNode(projectName);
 
+    li.appendChild(projectNameNode);
+
+    
+    let elementListSelected = document.getElementsByClassName("selected");
+    elementListSelected[0].classList.remove('selected');
+
+      
+    //Should call task render
     if (projectName.value === "") {
       alert("Please enter a project!");
      } else {
@@ -98,5 +102,31 @@ const newTask = () => {
     }
   }
 
- 
+  const Project = () => {
+    let tasks = [];
+    
+    console.log(document.getElementById("new-project").value);
+    projectName = document.getElementById("new-project").value;
 
+      projectRender(projectName);
+    return (projectName, tasks);
+  };
+  
+  document.querySelector("#project-list").addEventListener("click", (e) => {
+    console.log(e);
+    let target = e.target.classList;
+    
+    //console.log(target);
+
+    if (target.contains('selected')) {
+      return;
+    } else {
+      let elementListSelected = document.getElementsByClassName("selected");
+    elementListSelected[0].classList.remove('selected');
+    target.add('selected');
+    }
+  });
+
+  
+
+ 

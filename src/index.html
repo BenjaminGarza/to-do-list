@@ -17,15 +17,13 @@
     Projects
     <ul id="project-list">
       <li class="selected">Default</li>
-      <li>2</li>
-      <li>3</li>
     </ul>
     <input type="text" id="new-project" placeholder="New project">
-    <button onclick="newProject()"" class="addBtn">+</button>
+    <button onclick="Project()"" class="addBtn">+</button>
   </aside>
   <header>
     
-    <label> Project title</label>
+    <label id="project-title"></label>
     <input type="text" id="newTaskTitle" placeholder="Title">
     <button onclick="newTask()"" class="addBtn">+</button>
     <input type="text" id="newTaskDescription" placeholder="Description">
@@ -39,7 +37,6 @@
   
 
   <ul id="taskList">
-    <li> Test</li>
   </ul>
 
   <script src="logic.js"></script>
