@@ -1,3 +1,4 @@
+let projects = [];
 
 const deleteBtn = () => {
 
@@ -44,6 +45,8 @@ const newTask = () => {
   let editBtn = document.createElement('button', { className: 'edit-btn' });
   editBtn.classList.add("edit-btn");
   editBtn.innerHTML = "Edit";
+  let selectedProject = document.getElementsByClassName("selected")
+  console.log(selectedProject);
   
   const task = taskFactory(
     document.getElementsByClassName("selected"), 
@@ -52,6 +55,7 @@ const newTask = () => {
     document.getElementById("newTaskDueDate").value, 
     document.getElementById("newTaskUrgency").value
   );
+  console.log(projects);
 
   document.getElementById("newTaskTitle").value = "";
   document.getElementById("newTaskDescription").value = ""; 
@@ -103,13 +107,16 @@ const newTask = () => {
   }
 
   const Project = () => {
-    let tasks = [];
     
     console.log(document.getElementById("new-project").value);
     projectName = document.getElementById("new-project").value;
 
-      projectRender(projectName);
-    return (projectName, tasks);
+    projectRender(projectName);
+  
+    projects.push(projectName, []);
+    console.log(projects);
+    
+    return (projectName);
   };
   
   document.querySelector("#project-list").addEventListener("click", (e) => {
