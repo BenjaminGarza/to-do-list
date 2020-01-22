@@ -1,0 +1,15 @@
+{
+  "name": "webpack-academy-one",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Benjamin Garza <benjisgarza@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
