@@ -18,20 +18,25 @@ const DOMController = (() => {
 
   const todoHTML = `
     <li>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div>title</div>
+      <div>description</div>
+      <div>dueDate</div>
+      <div>urgency</div>
       <input type = 'checkbox'></input>
-      <button class = 'delete-btn'>X</button>
       <button class = 'edit-btn'>Edit</button>
+      <button class = 'delete-btn'>X</button>
     </li>
   `;
+  
+  let test = () => ( 'its working');
 
   return{
-    todoInput
+    todoInput,
+    todoHTML,
+    todoFieldReset,
+    test
   };
   
 })();
 
-export {DOMController};
+export {DOMController as default};

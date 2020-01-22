@@ -1,7 +1,9 @@
-
+import DOMController from './modules/DOMController';
 
 let projects = ['hello', 'world'];
 
-testDiv = document.querySelector('.test');
 
-projects.map(index => {testDiv.innerHTML =`<h1>${index}</h1>`});
+let testDiv = document.querySelector('.test');
+//testDiv.insertAdjacentHTML(DOMController.todoHTML);
+testDiv.innerHTML = DOMController.todoHTML;
+//projects.map(index => {testDiv.innerHTML =`${DOMController.todoHTML}`});
