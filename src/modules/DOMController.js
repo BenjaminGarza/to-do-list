@@ -11,18 +11,18 @@ const DOMController = (() => {
 
   const todoInput = () => ({
     title: document.querySelector('#newTaskTitle').value,
-    description: document.querySelector('.newTaskDescription').value,
-    dueDate: document.querySelector('newTaslDueDate').value,
-    urgency: document.querySelector('newTaskUrgency').value,
+    description: document.querySelector('#newTaskDescription').value,
+    dueDate: document.querySelector('#newTaskDueDate').value,
+    urgency: document.querySelector('#newTaskUrgency').value,
 
   });
 
   const todoInputValidation = () => {
     if (document.querySelector('#newTaskTitle').value == ''){
       alert('You forgot the title!')
-    } else if (document.querySelector('newTaslDueDate').value == '') {
+    } else if (document.querySelector('#newTaskDueDate').value == '') {
       alert('You forgot the due date!')
-    }
+    } else {return true};
   };
 
   const todoFieldReset = () => (
@@ -34,23 +34,23 @@ const DOMController = (() => {
 
   const todoHTML = `
     <li>
-      <div>test</div>
-      <div>test</div>
-      <div>test</div>
-      <div>test</div>
+      <div>${todoInput().title}</div>
+      <div>${todoInput().description}</div>
+      <div>${todoInput().dueDate}</div>
+      <div>${todoInput().urgency}</div>
       <input type = 'checkbox'></input>
       <button class = 'edit-btn'>Edit</button>
       <button class = 'delete-btn'>X</button>
     </li>
   `;
   
-  const test = (thing = "default") => ( console.log(thing));
+  //const test = (thing = "default") => ( console.log(thing));
 
   return{
     todoInput,
+    todoInputValidation,
     todoHTML,
-    todoFieldReset,
-    test
+    todoFieldReset
   };
   
 })();
