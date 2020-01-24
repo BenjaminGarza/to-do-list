@@ -1,8 +1,9 @@
 class Todo {
-  constructor(title, description, dueDate = new Date(), status = false) {
+  constructor(title, description, dueDate = new Date(), urgency, status = false) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
+    this.urgency = urgency;
     this.status = status;
   }
 
@@ -29,6 +30,13 @@ class Todo {
     this.dueDate = updateDate;
   }
 
+  get getUrgency(){
+    return this.urgency;
+  }
+
+  set setUrgency(updateUrgency) {
+    this.urgency = updateUrgency;
+  }
   get getStatus() {
     return this.status;
   }
