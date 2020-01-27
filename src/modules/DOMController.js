@@ -17,6 +17,10 @@ const DOMController = (() => {
 
   });
 
+  const projectInput = () => ({
+    title: document.querySelector('#new-project').value
+  });
+
   const todoInputValidation = () => {
     if (document.querySelector('#newTaskTitle').value == ''){
       alert('You forgot the title!')
@@ -25,32 +29,70 @@ const DOMController = (() => {
     } else {return true};
   };
 
+  //Reset input field
   const todoFieldReset = () => (
     document.querySelector('#newTaskTitle').value = '',
-    document.querySelector('newTaskDescription').value = '',
-    document.querySelector('newTaslDueDate').value = '',
-    document.querySelector('newTaskUrgency').value = ''
+    document.querySelector('#newTaskDescription').value = '',
+    document.querySelector('#newTaskDueDate').value = '',
+    document.querySelector('#newTaskUrgency').value = ''
   );
 
-  const todoHTML = `
+  //clears all li from todo list
+  const clearRenderedTodos = () => {
+    const ul = document.querySelector('#todo-list');
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    };
+  };
+
+  //clears all projects from project list
+  const clearRenderedProjects = () => {
+    const ul = document.querySelector('#project-list');
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    };
+  };
+
+
+  const todoHTML = (todo) => {
+    let li = `
     <li>
-      <div>${todoInput().title}</div>
-      <div>${todoInput().description}</div>
-      <div>${todoInput().dueDate}</div>
-      <div>${todoInput().urgency}</div>
+      <div>${todo.title}</div>
+      <div>${todo.description}</div>
+      <div>${todo.dueDate}</div>
+      <div>${todo.urgency}</div>
       <input type = 'checkbox'></input>
       <button class = 'edit-btn'>Edit</button>
       <button class = 'delete-btn'>X</button>
     </li>
-  `;
+  `
+  return li;
+};
+
+//left off here, not finished
+const projectHTML = (project) => {
+  let li = `
+  <li class = '' id = '${project}'>
+    <div>${project}</div>
+    <input type = 'checkbox'></input>
+    <button class = 'edit-btn'>Edit</button>
+    <button class = 'delete-btn'>X</button>
+  </li>
+`
+return li;
+};
   
   //const test = (thing = "default") => ( console.log(thing));
 
   return{
     todoInput,
+    projectInput,
     todoInputValidation,
     todoHTML,
-    todoFieldReset
+    projectHTML,
+    todoFieldReset,
+    clearRenderedTodos,
+    clearRenderedProjects
   };
   
 })();
