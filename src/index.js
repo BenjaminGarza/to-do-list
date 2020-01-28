@@ -31,13 +31,16 @@ const addTodo = (selectedIndex) => {
 };
 
 const addProject = () => {
-  //
   const input = DOMController.projectInput();
-  const newProject = new Project(input.title);
-  length = projects.push([]) - 1;
-  projects[length].push(newProject.title);
-  console.log(projects);
-  console.log(document.querySelector('.selected').innerHTML);
+  console.log(projectValidation(input.title));
+  if (projectValidation(input.title)){
+    const newProject = new Project(input.title);
+    length = projects.push([]) - 1;
+    projects[length].push(newProject.title);
+    console.log(projects);
+    console.log(document.querySelector('.selected').innerHTML);
+  }
+  
 };
 
 const renderAllTodos = (selectedIndex) => {
@@ -91,6 +94,20 @@ const addAndRenderProject = () => {
   addProject();
   //console.log(selectedIndex);
   renderAllProjects(selectedIndex);
+};
+
+const projectValidation = (input) => {
+  console.log(input, 'validation');
+  console.log(projects);
+  let testArr = projects.map( element =>  input == element);
+  console.log(testArr, 'TEST ARRAY');
+  if (input == ''){
+    alert('Cannot create a blank project')
+    return false;
+  } else if(testArr.includes(true)) {
+    alert('Cannot create a duplicate project')
+    return false;
+  } else return true;
 };
 
 document.querySelector('#addProjectBtn').addEventListener('click', () => {
