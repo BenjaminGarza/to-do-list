@@ -1,4 +1,4 @@
-// eslint disable rule 'Unary operator'
+
 import DOMController from './modules/DOMController';
 import Project from './modules/project';
 import Todo from './modules/todo';
@@ -18,78 +18,78 @@ const projects = [['Default']];
 
 
 // const newProject = new Project('init parameters')
-const addTodo = () => {
+const addTodo = (selectedIndex) => {
+  console.log(selectedIndex);
+  console.log(projects);
+  console.log(projects[selectedIndex]);
   if (DOMController.todoInputValidation()) {
     const input = DOMController.todoInput();
     const newTask = new Todo(input.title, input.description, input.dueDate, input.urgency);
-    // console.log(newTask);
-    projects[0].push(newTask);
-    // console.log(projects[0]);
-    // console.log(document.querySelector('.selected').innerHTML);
+    projects[selectedIndex].push(newTask);
+   
   }
 };
 
 const addProject = () => {
+  //
   const input = DOMController.projectInput();
   const newProject = new Project(input.title);
-  console.log(newProject.title);
-  projects.push(newProject.title);
+  length = projects.push([]) - 1;
+  projects[length].push(newProject.title);
   console.log(projects);
   console.log(document.querySelector('.selected').innerHTML);
 };
 
 const renderAllTodos = (selectedIndex) => {
   DOMController.clearRenderedTodos();
+  console.log(projects[selectedIndex], 'renderTodos');
+  if (projects[selectedIndex].length > 0){
   for (let i = 1; i < projects[selectedIndex].length; i++) {
     const newLi = DOMController.todoHTML(projects[selectedIndex][i]);
+
     document.querySelector('#todo-list').insertAdjacentHTML('beforeend', newLi);
   }
+};
 };
 
 // Left off here
 const renderAllProjects = () => {
   DOMController.clearRenderedProjects();
   for (let i = 0; i < projects.length; i++) {
-    // console.log('Here my dude');
-    // console.log(projects[i]);
+   
     const newLi = DOMController.projectHTML(projects[i]);
-    // console.log(i);
     document.querySelector('#project-list').insertAdjacentHTML('beforeend', newLi);
     if (i == projects.length - 1) {
-      // console.log(i);
-      // console.log(projects.length);
       document.querySelector('#project-list').lastElementChild.classList.add('selected');
-      // console.log(typeof newLi);
     }
-    // console.log(newLi);
   }
 };
 
 // Returns the index of projects that the selected project is located at
 const findSelectedProject = () => {
-  const selected = document.querySelector('.selected').innerHTML;
-
+  const selected = document.querySelector('.selected').id;
   for (let i = 0; i < projects.length; i++) {
-    // console.log(projects[i][0], selected);
+    console.log(selected,'selected value');
+    //console.log(projects[i][0], selected);
     if (projects[i][0] == selected) {
       return i;
     }
-    // console.log('ERROR IN findSelctedProject');
   }
 };
 
 const addAndRenderTodo = () => {
-  addTodo();
-  const selectedIndex = findSelectedProject();
-  // console.log(selectedIndex);
+  let selectedIndex = findSelectedProject();
+  console.log(selectedIndex,'addAndRenderTodo');
+  addTodo(selectedIndex);
+  //console.log(selectedIndex);
   renderAllTodos(selectedIndex);
   // DOMController.todoFieldReset(); commented for testing purposes
 };
 
 const addAndRenderProject = () => {
+  let selectedIndex = findSelectedProject();
   addProject();
-  const selectedIndex = findSelectedProject();
-  // console.log(selectedIndex);
+  //console.log(selectedIndex);
   renderAllProjects(selectedIndex);
 };
 
@@ -99,4 +99,21 @@ document.querySelector('#addProjectBtn').addEventListener('click', () => {
 
 document.querySelector('#addTodoBtn').addEventListener('click', () => {
   addAndRenderTodo();
+});
+
+document.querySelector("#project-list").addEventListener("click", (e) => {
+  console.log(e);
+  let target = e.target.classList;
+  
+  //console.log(target);
+
+  if (target.contains('selected')) {
+    return;
+  } else {
+    let elementListSelected = document.getElementsByClassName("selected");
+  elementListSelected[0].classList.remove('selected');
+  target.add('selected');
+  console.log(findSelectedProject());
+  renderAllTodos(findSelectedProject());
+  };
 });
