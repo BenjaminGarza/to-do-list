@@ -8,11 +8,11 @@ class Project {
     this.todos = [];
   }
 
-  get getTitle(){
+  get getTitle() {
     return this.title;
   }
 
-  get getCategory(){
+  get getCategory() {
     return this.category;
   }
 
@@ -20,15 +20,15 @@ class Project {
     this.category = newCategory;
   }
 
-  get getDescription(){
+  get getDescription() {
     return this.description;
   }
 
-  get getDueDate(){
+  get getDueDate() {
     return this.DueDate;
   }
 
-  set setDueDate(updateDate){
+  set setDueDate(updateDate) {
     this.date = updateDate;
   }
 
@@ -45,8 +45,7 @@ class Project {
   }
 
   delTodo(index) {
-    this.todos.splice(index,1)
+    this.todos.splice(index, 1);
   }
-  
 }
-export {Project as default};
+export { Project as default };

@@ -15,14 +15,15 @@ class Todo {
     this.title = updateTitle;
   }
 
-  get getDescription(){
+  get getDescription() {
     return this.description;
   }
 
   set setDescription(updateDescription) {
     this.description = updateDescription;
   }
-  get getDueDate(){
+
+  get getDueDate() {
     return this.dueDate;
   }
 
@@ -30,16 +31,18 @@ class Todo {
     this.dueDate = updateDate;
   }
 
-  get getUrgency(){
+  get getUrgency() {
     return this.urgency;
   }
 
   set setUrgency(updateUrgency) {
     this.urgency = updateUrgency;
   }
+
   get getStatus() {
     return this.status;
   }
+
   set setStatus(updateStatus) {
     this.status = updateStatus;
   }

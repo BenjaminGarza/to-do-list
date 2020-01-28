@@ -2,11 +2,11 @@
 const DOMController = (() => {
   const selectedProject = () => document.querySelector('.selected');
 
-  //Add return for todoInput. Take return and create new task with it
+  // Add return for todoInput. Take return and create new task with it
   // createdTask as new Todo(todoInput())
-  //Find which project the task belongs to
+  // Find which project the task belongs to
   // projects[projectIndex].push(createdTask)
-  //projects[0].push(createdTask)
+  // projects[0].push(createdTask)
 
 
   const todoInput = () => ({
@@ -18,44 +18,45 @@ const DOMController = (() => {
   });
 
   const projectInput = () => ({
-    title: document.querySelector('#new-project').value
+    title: document.querySelector('#new-project').value,
   });
 
   const todoInputValidation = () => {
-    if (document.querySelector('#newTaskTitle').value == ''){
-      alert('You forgot the title!')
+    if (document.querySelector('#newTaskTitle').value == '') {
+      alert('You forgot the title!');
     } else if (document.querySelector('#newTaskDueDate').value == '') {
-      alert('You forgot the due date!')
-    } else {return true};
+      alert('You forgot the due date!');
+    } else { return true; }
   };
 
-  //Reset input field
-  const todoFieldReset = () => (
-    document.querySelector('#newTaskTitle').value = '',
-    document.querySelector('#newTaskDescription').value = '',
-    document.querySelector('#newTaskDueDate').value = '',
-    document.querySelector('#newTaskUrgency').value = ''
-  );
+  // Reset input field
+  // change from arrow function, should not be used for assignment
+  // const todoFieldReset = () => (
+  // document.querySelector('#newTaskTitle').value = '',
+  // document.querySelector('#newTaskDescription').value = '',
+  // document.querySelector('#newTaskDueDate').value = '',
+  // document.querySelector('#newTaskUrgency').value = ''
+  // );
 
-  //clears all li from todo list
+  // clears all li from todo list
   const clearRenderedTodos = () => {
     const ul = document.querySelector('#todo-list');
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
-    };
+    }
   };
 
-  //clears all projects from project list
+  // clears all projects from project list
   const clearRenderedProjects = () => {
     const ul = document.querySelector('#project-list');
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
-    };
+    }
   };
 
 
   const todoHTML = (todo) => {
-    let li = `
+    const li = `
     <li>
       <div>${todo.title}</div>
       <div>${todo.description}</div>
@@ -65,36 +66,34 @@ const DOMController = (() => {
       <button class = 'edit-btn'>Edit</button>
       <button class = 'delete-btn'>X</button>
     </li>
-  `
-  return li;
-};
+  `;
+    return li;
+  };
 
-//left off here, not finished
-const projectHTML = (project) => {
-  let li = `
+  // left off here, not finished
+  const projectHTML = (project) => {
+    const li = `
   <li class = '' id = '${project}'>
     <div>${project}</div>
     <input type = 'checkbox'></input>
     <button class = 'edit-btn'>Edit</button>
     <button class = 'delete-btn'>X</button>
   </li>
-`
-return li;
-};
-  
-  //const test = (thing = "default") => ( console.log(thing));
+`;
+    return li;
+  };
 
-  return{
+  // const test = (thing = "default") => ( console.log(thing));
+
+  return {
     todoInput,
     projectInput,
     todoInputValidation,
     todoHTML,
     projectHTML,
-    todoFieldReset,
     clearRenderedTodos,
-    clearRenderedProjects
+    clearRenderedProjects,
   };
-  
 })();
 
-export {DOMController as default};
+export { DOMController as default };
