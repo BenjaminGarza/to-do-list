@@ -53,13 +53,16 @@ const renderAllProjects = () => {
     console.log(projects[i]);
     let newLi = DOMController.projectHTML(projects[i]);
     console.log(i);
+    document.querySelector('#project-list').insertAdjacentHTML("beforeend",newLi);
     if(i == projects.length - 1) {
-      //.classList.add('selected');
+      console.log(i);
+      console.log(projects.length);
+      document.querySelector('#project-list').lastElementChild.classList.add('selected');
       console.log(typeof newLi);
     }
     console.log(newLi);
-    document.querySelector('#project-list').insertAdjacentHTML("beforeend",newLi);
-    document.querySelector('#project-list').lastElementChild.classList.add('selected');
+    
+    
   };
 };
 
