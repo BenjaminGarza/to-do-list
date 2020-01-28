@@ -73,7 +73,7 @@ const DOMController = (() => {
   // left off here, not finished
   const projectHTML = (project) => {
     const li = `
-  <li class = '' id = '${project}'>
+  <li class = "project" id = '${project}'>
     <div>${project}</div>
     <input type = 'checkbox'></input>
     <button class = 'edit-btn'>Edit</button>

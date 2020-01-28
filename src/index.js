@@ -55,7 +55,6 @@ const renderAllTodos = (selectedIndex) => {
 };
 };
 
-// Left off here
 const renderAllProjects = () => {
   DOMController.clearRenderedProjects();
   for (let i = 0; i < projects.length; i++) {
@@ -96,6 +95,11 @@ const addAndRenderProject = () => {
   renderAllProjects(selectedIndex);
 };
 
+const deleteProject = (indexToDelete) => {
+  projects.splice(indexToDelete,1);
+  renderAllProjects();
+};
+
 const projectValidation = (input) => {
   console.log(input, 'validation');
   console.log(projects);
@@ -118,8 +122,13 @@ document.querySelector('#addTodoBtn').addEventListener('click', () => {
   addAndRenderTodo();
 });
 
-document.querySelector("#project-list").addEventListener("click", (e) => {
+document.querySelectorAll('.delete-btn').addEventListener("click", (e) => {
   console.log(e);
+  deleteProject();
+});
+
+document.querySelector('#project-list').addEventListener("click", (e) => {
+  console.log(e.target);
   let target = e.target.classList;
   
   //console.log(target);
@@ -127,6 +136,9 @@ document.querySelector("#project-list").addEventListener("click", (e) => {
   if (target.contains('selected')) {
     return;
   } else {
+    console.log(e)
+    let tagList = document.getElementsByTagName("li")
+    console.log(tagList, "taglist");
     let elementListSelected = document.getElementsByClassName("selected");
   elementListSelected[0].classList.remove('selected');
   target.add('selected');
