@@ -70,14 +70,13 @@ const DOMController = (() => {
     return li;
   };
 
-  // left off here, not finished
   const projectHTML = (project) => {
     const li = `
   <li class = "project" id = '${project}'>
     <div>${project}</div>
     <input type = 'checkbox'></input>
     <button class = 'edit-btn'>Edit</button>
-    <button class = 'delete-btn'>X</button>
+    <button data-name = '${project}' class = 'delete-btn'>X</button>
   </li>
 `;
     return li;
