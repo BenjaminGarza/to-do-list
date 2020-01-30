@@ -2,13 +2,6 @@
 const DOMController = (() => {
   const selectedProject = () => document.querySelector('.selected');
 
-  // Add return for todoInput. Take return and create new task with it
-  // createdTask as new Todo(todoInput())
-  // Find which project the task belongs to
-  // projects[projectIndex].push(createdTask)
-  // projects[0].push(createdTask)
-
-
   const todoInput = () => ({
     title: document.querySelector('#newTaskTitle').value,
     description: document.querySelector('#newTaskDescription').value,
