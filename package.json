@@ -100,7 +100,7 @@
     "emoji-regex": "^7.0.3",
     "emojis-list": "^2.1.0",
     "end-of-stream": "^1.4.4",
-    "elliptic": "^6.5.2",
+    "elliptic": "^6.5.3",
     "enhanced-resolve": "^4.1.0",
     "errno": "^0.1.7",
     "eslint-scope": "^4.0.3",
