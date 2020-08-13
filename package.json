@@ -264,7 +264,7 @@
     "semver": "^5.7.1",
     "safe-buffer": "^5.2.0",
     "safe-regex": "^1.1.0",
-    "serialize-javascript": "^2.1.2",
+    "serialize-javascript": "^3.1.0",
     "setimmediate": "^1.0.5",
     "set-blocking": "^2.0.0",
     "sha.js": "^2.4.11",
