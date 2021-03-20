@@ -282,7 +282,7 @@
     "split-string": "^3.1.0",
     "signal-exit": "^3.0.2",
     "stream-browserify": "^2.0.2",
-    "ssri": "^6.0.1",
+    "ssri": "^8.0.1",
     "static-extend": "^0.1.2",
     "stream-http": "^2.8.3",
     "stream-each": "^1.2.3",
