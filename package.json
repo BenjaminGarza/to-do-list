@@ -130,7 +130,7 @@
     "get-stream": "^4.1.0",
     "get-value": "^2.0.6",
     "get-caller-file": "^2.0.5",
-    "glob-parent": "^3.1.0",
+    "glob-parent": "^5.1.2",
     "glob": "^7.1.6",
     "global-modules": "^2.0.0",
     "global-prefix": "^3.0.0",
