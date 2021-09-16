@@ -275,7 +275,7 @@
     "snapdragon-util": "^3.0.1",
     "source-map-resolve": "^0.5.3",
     "source-map": "^0.6.1",
-    "set-value": "^2.0.1",
+    "set-value": "^4.0.1",
     "source-list-map": "^2.0.1",
     "source-map-support": "^0.5.16",
     "source-map-url": "^0.4.0",
