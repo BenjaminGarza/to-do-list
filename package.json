@@ -22,7 +22,7 @@
   },
   "description": "to-do-list-github",
   "dependencies": {
-    "ajv": "^6.11.0",
+    "ajv": "^6.12.3",
     "ajv-keywords": "^3.4.1",
     "ajv-errors": "^1.0.1",
     "acorn": "^6.4.0",
