@@ -175,7 +175,7 @@
     "kind-of": "^3.2.2",
     "json-schema-traverse": "^0.4.1",
     "lcid": "^2.0.0",
-    "loader-utils": "^1.2.3",
+    "loader-utils": "^1.4.1",
     "locate-path": "^3.0.0",
     "loader-runner": "^2.4.0",
     "lru-cache": "^5.1.1",
