@@ -171,7 +171,7 @@
     "isexe": "^2.0.0",
     "isobject": "^3.0.1",
     "json-parse-better-errors": "^1.0.2",
-    "json5": "^1.0.1",
+    "json5": "^1.0.2",
     "kind-of": "^3.2.2",
     "json-schema-traverse": "^0.4.1",
     "lcid": "^2.0.0",
